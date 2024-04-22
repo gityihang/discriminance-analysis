@@ -13,7 +13,7 @@ data_test = pd.read_csv('byh/src/datasets/winequality-red_test.csv')
 
 data_train = data_train.sample(frac=1).reset_index(drop=True)  #打乱数据所在的行
 
-device = torch.device("mps")
+device = torch.device("cuda")
 
 inputs_train= data_train.drop(columns='quality_two').values
 outputs_train = data_train[["quality_two"]].values
@@ -76,7 +76,7 @@ plt.legend()
 plt.show()   
 
 # 保存模型
-torch.save(model.state_dict(), "/Users/a11/vscode/discriminance-analysis/byh/checkpoint/Cla_model.pth")
+torch.save(model.state_dict(), "/home/byh/yanjiusheng/xiangmu/判别分析作业/discriminance-analysis/byh/checkpoint/Cla_model-windows.pth")
 
 
 
